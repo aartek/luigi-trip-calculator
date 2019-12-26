@@ -1,16 +1,32 @@
+import { AppLoadService } from './services/app-loader.service';
+import { DecimalPipe } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+function init(svc: AppLoadService) {
+  return () => svc.init();
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalculatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AppLoadService,
+    { provide: APP_INITIALIZER, useFactory: init, deps: [AppLoadService], multi: true },
+    DecimalPipe
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

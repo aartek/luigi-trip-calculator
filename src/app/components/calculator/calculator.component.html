@@ -1,0 +1,45 @@
+<form class="fd-form" [formGroup]="calculatorForm">
+
+  <div class="fd-form-item">
+    <label class="fd-form-label" for="input-1b">Car</label>
+    <select class="fd-form-select">
+      <option value="">----</option>
+      <option *ngFor="let car of cars" [value]="car.name">{{car.name}}</option>
+    </select>
+  </div>
+
+  <div class="fd-form-item">
+    <label class="fd-form-label" for="input-1b">Distance (in kilometers)</label>
+    <input class="fd-input" type="number" id="input-1b" formControlName="distance">
+  </div>
+
+  <div class="fd-form-item">
+    <label class="fd-form-label" for="input-1b">Consumption l/100</label>
+    <input class="fd-input" type="number" formControlName="consumption">
+  </div>
+
+  <div class="fd-form-item">
+    <label class="fd-form-label" for="input-1b">Fuel price</label>
+    <input class="fd-input" type="number" formControlName="price">
+  </div>
+
+  <div class="fd-form-item">
+    <label class="fd-form-label" for="input-1b">People</label>
+    <input class="fd-input" type="number" formControlName="people">
+  </div>
+
+  <div class="fd-form-item">
+    <label class="fd-form-label" for="input-1b">Additional costs</label>
+    <input class="fd-input" type="number" formControlName="additionalCosts">
+  </div>
+</form>
+<div class="fd-form">
+  <div class="fd-form-item">
+    <label class="fd-form-label">Total cost</label>
+    <input class="fd-input" type="number" [formControl]="result" readonly>
+  </div>
+  <div class="fd-form-item">
+    <label class="fd-form-label">Cost per person</label>
+    <input class="fd-input" type="number" [formControl]="perPerson" readonly>
+  </div>
+</div>
