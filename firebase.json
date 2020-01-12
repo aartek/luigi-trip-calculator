@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "dist/trip-calculator",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "target": "trip-calculator-1de37",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

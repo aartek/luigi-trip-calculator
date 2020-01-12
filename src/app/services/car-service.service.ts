@@ -15,7 +15,7 @@ export class CarServiceService {
     this.db = appLoadService.database;
   }
 
-  async getExpenses() {
+  async getCosts() {
     if (this.userId) {
       const carsRef = await this.db.ref(`users/${this.userId}/cars`).once('value');
       const cars = carsRef.val();

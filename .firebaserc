@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "trip-fc58b"
+  },
+  "targets": {
+    "trip-fc58b": {
+      "hosting": {
+        "trip-calculator-1de37": [
+          "trip-calculator-1de37"
+        ]
+      }
+    }
+  }
+}
