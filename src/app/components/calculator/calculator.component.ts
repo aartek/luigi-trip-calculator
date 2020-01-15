@@ -2,7 +2,6 @@ import { Expense } from './../../models/Expense';
 import { CarServiceService } from './../../services/car-service.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-calculator',

@@ -7,11 +7,6 @@ import { AppComponent } from './app.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-function init(svc: AppLoadService) {
-  return () => svc.init();
-}
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +18,7 @@ function init(svc: AppLoadService) {
   ],
   providers: [
     AppLoadService,
-    { provide: APP_INITIALIZER, useFactory: init, deps: [AppLoadService], multi: true },
+    { provide: APP_INITIALIZER, useFactory: (svc: AppLoadService) => () => svc.init(), deps: [AppLoadService], multi: true },
     DecimalPipe
   ],
   bootstrap: [AppComponent]
