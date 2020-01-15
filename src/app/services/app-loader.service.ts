@@ -38,6 +38,7 @@ export class AppLoadService {
             })
             .catch((error) => {
               console.error('Couldn\'t sing in to firebase');
+              res();
             });
         } else {
           res();
