@@ -1,7 +1,7 @@
-import { Expense } from './../../models/Expense';
-import { CarServiceService } from './../../services/car-service.service';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import {Expense} from './../../models/Expense';
+import {CarServiceService} from './../../services/car-service.service';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-calculator',
@@ -20,9 +20,7 @@ export class CalculatorComponent implements OnInit {
     private carService: CarServiceService,
     private ref: ChangeDetectorRef
   ) {
-    const lastCalculation = window.localStorage.getItem('lastCalculation')
-      ? JSON.parse(window.localStorage.getItem('lastCalculation'))
-      : {};
+    const lastCalculation = this.getLastCalculation()
     this.lastCarName = lastCalculation.car || '';
 
     this.calculatorForm = this.formBuilder.group({
@@ -31,7 +29,7 @@ export class CalculatorComponent implements OnInit {
       price: [lastCalculation.price || ''],
       people: [lastCalculation.people || ''],
       additionalCosts: [lastCalculation.additionalCosts || 0],
-      car: [{ value: '', disabled: true }]
+      car: [{value: '', disabled: true}]
     });
 
     this.calculatorForm.valueChanges.subscribe(val => {
@@ -88,5 +86,13 @@ export class CalculatorComponent implements OnInit {
       });
     }
     return carCosts;
+  }
+
+  private getLastCalculation() {
+    try {
+      return JSON.parse(window.localStorage.getItem('lastCalculation'))
+    } catch (e) {
+      return {}
+    }
   }
 }
