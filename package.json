@@ -19,9 +19,9 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "@kyma-project/luigi-client": "^0.7.3",
+    "@luigi-project/client": "^1.0.0",
     "firebase": "^7.6.1",
-    "fundamental-styles": "^0.4.0",
+    "fundamental-styles": "^0.7.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

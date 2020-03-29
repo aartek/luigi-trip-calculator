@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as LuigiClient from '@kyma-project/luigi-client';
+import * as LuigiClient from '@luigi-project/client';
 import 'firebase/database';
 import 'firebase/auth';
 import * as firebase from 'firebase/app';
