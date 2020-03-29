@@ -90,7 +90,8 @@ export class CalculatorComponent implements OnInit {
 
   private getLastCalculation() {
     try {
-      return JSON.parse(window.localStorage.getItem('lastCalculation'))
+      return window.localStorage.getItem('lastCalculation') ?
+        JSON.parse(window.localStorage.getItem('lastCalculation')) : {}
     } catch (e) {
       return {}
     }
